@@ -104,7 +104,7 @@ module Isomorphic
             s = method_name.to_s
             const_name = s[0].upcase.concat(s[1..-1])
 
-            new_class = const_get(base, instance_class, const_name)
+            new_class = const_get(base, orig_class, const_name)
 
             unless new_class.is_a?(::Class)
               raise Isomorphic::InvalidFactoryClass.new(nil, base, orig_class, const_name)
